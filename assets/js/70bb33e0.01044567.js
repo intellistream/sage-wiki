@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksage_wiki=self.webpackChunksage_wiki||[]).push([["32"],{1821(e){e.exports=JSON.parse('{"metadata":{"permalink":"/sage-wiki/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":0,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);

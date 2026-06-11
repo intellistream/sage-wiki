@@ -1,0 +1,30 @@
+.features {
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+.feature {
+  margin-bottom: 2rem;
+}
+
+.featureLink {
+  display: block;
+  text-decoration: none !important;
+  color: var(--ifm-font-color-base);
+  padding: 1rem;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.featureLink:hover {
+  background-color: var(--ifm-color-emphasis-100);
+  text-decoration: none;
+}
+
+.featureEmoji {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}

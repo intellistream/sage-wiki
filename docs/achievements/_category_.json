@@ -1,0 +1,8 @@
+{
+  "label": "成果展示",
+  "position": 2,
+  "link": {
+    "type": "doc",
+    "id": "achievements/index"
+  }
+}

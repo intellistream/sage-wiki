@@ -1,0 +1,8 @@
+{
+  "label": "技术心得",
+  "position": 4,
+  "link": {
+    "type": "doc",
+    "id": "tech-notes/index"
+  }
+}

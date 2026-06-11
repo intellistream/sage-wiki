@@ -1,0 +1,8 @@
+{
+  "label": "学习教程",
+  "position": 3,
+  "link": {
+    "type": "doc",
+    "id": "tutorials/index"
+  }
+}

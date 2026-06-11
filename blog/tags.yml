@@ -1,0 +1,21 @@
+# 博客标签配置
+# 格式：
+#   tag_id:
+#     label: 显示名称
+#     description: 标签描述
+
+weekly:
+  label: 周报
+  description: 团队每周工作总结与计划
+
+tech-sharing:
+  label: 技术分享
+  description: 技术分享与交流
+
+tutorial:
+  label: 教程
+  description: 技术教程与学习指南
+
+announcement:
+  label: 公告
+  description: 团队公告与重要通知

@@ -1,0 +1,8 @@
+{
+  "label": "资源汇总",
+  "position": 6,
+  "link": {
+    "type": "doc",
+    "id": "resources/index"
+  }
+}

@@ -2,7 +2,7 @@
 
 IntelliStream 团队知识库，通过 Git 协作维护。
 
-在线访问：**[https://intellistream.github.io/sage-wiki](https://intellistream.github.io/sage-wiki)**
+在线访问：**[https://lab.sage.org.ai/sage-wiki](https://lab.sage.org.ai/sage-wiki)**
 
 ## 本地开发
 

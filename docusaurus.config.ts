@@ -11,7 +11,7 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'https://intellistream.github.io',
+  url: 'https://lab.sage.org.ai',
   baseUrl: '/sage-wiki/',
 
   organizationName: 'intellistream',

@@ -4,6 +4,7 @@ date: 2026-06-12
 authors: [kimmo]
 tags: [提示词工程, Codebuddy, AI]
 sidebar_position: 1
+hide_table_of_contents: true
 ---
 
 # Prompt Engineering——Codebuddy CLI 提示词设计 (完整翻译版)

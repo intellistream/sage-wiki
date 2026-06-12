@@ -19,3 +19,7 @@ tutorial:
 announcement:
   label: 公告
   description: 团队公告与重要通知
+
+tool-intro:
+  label: 工具推荐
+  description: 开发工具介绍与使用心得

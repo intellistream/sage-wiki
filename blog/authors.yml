@@ -1,8 +1,4 @@
-# 团队成员作者配置
-# 格式：
-#   github_username:
-#     name: 显示名称
-#     title: 职位/角色
-#     url: 个人主页（可选）
-#     image_url: 头像 URL（可选）
-#     page: true
+kimmo:
+  name: Kimmo
+  title: 工程师
+  page: true

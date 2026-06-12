@@ -31,6 +31,9 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
           editUrl: 'https://github.com/intellistream/sage-wiki/edit/main/',
+          rehypePlugins: [
+            require('./plugins/rehype-restore-placeholders'),
+          ],
         },
         blog: {
           showReadingTime: true,

@@ -5,6 +5,8 @@
 const { visit } = require('unist-util-visit');
 
 const replacements = [
+  ['[[H2]]', '## '],
+  ['[[H3]]', '### '],
   ['[[OB]]', '{'],
   ['[[CB]]', '}'],
   ['[[LT]]', '<'],

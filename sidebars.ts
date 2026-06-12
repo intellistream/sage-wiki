@@ -41,7 +41,7 @@ const sidebars: SidebarsConfig = {
         {
           type: 'link',
           label: 'Prompt Engineering——Codebuddy CLI 提示词设计 (完整翻译版)',
-          href: '/sage-wiki/docs/industry-docs/prompt-engineering-cb-cli',
+          href: '/sage-wiki/docs/industry-docs/prompt-engineering-cb-cli.html',
         },
       ],
     },

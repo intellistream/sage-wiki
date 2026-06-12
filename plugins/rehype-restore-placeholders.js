@@ -5,10 +5,10 @@
 const { visit } = require('unist-util-visit');
 
 const replacements = [
-  ['___OB___', '{'],
-  ['___CB___', '}'],
-  ['___LT___', '<'],
-  ['___GT___', '>'],
+  ['[[OB]]', '{'],
+  ['[[CB]]', '}'],
+  ['[[LT]]', '<'],
+  ['[[GT]]', '>'],
 ];
 
 module.exports = function restorePlaceholders() {

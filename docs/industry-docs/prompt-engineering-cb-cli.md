@@ -1001,6 +1001,7 @@ GIT 状态：
 2. 暂存相关文件并使用 HEREDOC 语法创建提交：
 
 `````
+
 `````
 git commit -m "$(cat [[LT]][[LT]]'EOF'
 提交消息在此。[[OB]]% if settings.includeCoAuthoredBy %[[CB]]
@@ -1011,6 +1012,7 @@ Co-Authored-By: Codebuddy Code[[OB]]% endif %[[CB]]
 EOF
 )"
 `````
+
 `````
 
 `````

@@ -2496,6 +2496,14 @@ Second line with $literal dollar signs.
 使用 AI 模型从文本描述生成图片。
 `````
 
+### 5.23 结构化输出工具描述（tool-structuredoutput-description）
+
+**用途**：以结构化格式返回最终响应。
+
+`````
+使用此工具以请求的结构化格式返回你的最终响应。你必须精确在你的响应结束时调用此工具一次以提供结构化输出。
+`````
+
 ### 5.24 团队工具描述
 
 **TeamCreate（tool-teamcreate-description）**：
@@ -2957,11 +2965,13 @@ DeferExecuteTool([[OB]] toolName: "ImageGen", params: [[OB]] prompt: "a sunset o
 - 如果没有注册委托工具，此工具将返回错误
 - 工具执行结果从客户端侧返回
 [[OB]]% endif %[[CB]]
+`````
 
 ### 5.29 TodoWrite 工具描述（tool-todowrite-description）
 
 **用途**：创建和管理结构化任务列表。
 
+`````
 使用此工具创建和管理当前编码会话的结构化任务列表。这帮助你跟踪进度、组织复杂任务并向用户展示你的彻底性。
 还将帮助用户了解任务的进度和请求的整体进展。
 
@@ -3356,11 +3366,13 @@ $ARGUMENTS
 
 数据：
 [[OB]][[OB]] data [[CB]][[CB]]
+`````
 
 ### 6.5 改进建议（insights-facet-suggestions）
 
 **用途**：基于使用数据建议改进。
 
+`````
 分析此 Codebuddy Code 使用数据并建议改进。
 [[OB]]%- if language %[[CB]]
 
@@ -3492,11 +3504,13 @@ features_to_try 的重要说明：从上面的 CC 功能参考中选择 2-3 个�
 [[OB]][[OB]] data [[CB]][[CB]]
 
 [[OB]][[OB]] facetSummary [[CB]][[CB]]
+`````
 
 ### 6.9 会话分析（insights-session-facet）
 
 **用途**：分析单个对话会话并生成 JSON 摘要。
 
+`````
 分析此单个 Codebuddy Code 会话记录并生成 JSON 摘要。
 [[OB]]%- if language %[[CB]]
 
@@ -4363,11 +4377,5 @@ SendMessage([[OB]] to: "xyz-456", message: "第 58 行和第 72 行仍有两个�
 使用 AI 模型编辑或修改现有图片。当你有一张图片并想根据文本指令对其进行变换时使用此工具（例如，风格转换、添加元素、修改颜色等）。
 `````
 
-[[H3]]5.23 结构化输出工具描述（tool-structuredoutput-description）
 
-**用途**：以结构化格式返回最终响应。
-
-`````
-使用此工具以请求的结构化格式返回你的最终响应。你必须精确在你的响应结束时调用此工具一次以提供结构化输出。
-`````
 

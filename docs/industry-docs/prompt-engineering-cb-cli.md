@@ -967,7 +967,7 @@ GIT 状态：
 你的最终回复必须包含 markdown 报告，仅此而已。
 `````
 
-[[H3]]3.2 Git 提交提示词（command-commit-prompt）
+### 3.2 Git 提交提示词（command-commit-prompt）
 
 **用途**：自动分析变更、生成规范的 git commit 消息并执行提交。
 
@@ -1000,9 +1000,6 @@ GIT 状态：
 
 2. 暂存相关文件并使用 HEREDOC 语法创建提交：
 
-`````
-
-`````
 git commit -m "$(cat [[LT]][[LT]]'EOF'
 提交消息在此。[[OB]]% if settings.includeCoAuthoredBy %[[CB]]
 
@@ -1011,11 +1008,7 @@ git commit -m "$(cat [[LT]][[LT]]'EOF'
 Co-Authored-By: Codebuddy Code[[OB]]% endif %[[CB]]
 EOF
 )"
-`````
 
-`````
-
-`````
 你可以在单个响应中调用多个工具。使用单个消息暂存并创建提交。不要使用任何其他工具或做任何其他事情。不要发送除此工具调用之外的任何其他文本或消息。
 `````
 
@@ -1051,7 +1044,6 @@ EOF
 
 2. 使用 HEREDOC 语法创建包含适当消息的单个提交：
 
-`````
 git commit -m "$(cat [[LT]][[LT]]'EOF'
 提交消息在此。[[OB]]% if settings.includeCoAuthoredBy %[[CB]]
 
@@ -1060,16 +1052,12 @@ git commit -m "$(cat [[LT]][[LT]]'EOF'
 Co-Authored-By: Codebuddy Code[[OB]]% endif %[[CB]]
 EOF
 )"
-`````
 
-`````
 3. 将分支推送到 origin（首次推送使用 `-u`）。
 
 4. 如果此分支已存在 PR（检查上面的 `gh pr view` 输出），使用 `gh pr edit` 更新 PR 标题和正文以反映当前的 diff。否则，使用 `gh pr create` 和 HEREDOC 语法创建拉取请求。
    - 重要：保持 PR 标题简短（70 个字符以内）。用正文提供详细信息。
-`````
 
-`````
 gh pr create --title "简短、描述性的标题" --body "$(cat [[LT]][[LT]]'EOF'
 ## 摘要
 [[LT]]1-3 个要点[[GT]]
@@ -1080,15 +1068,13 @@ gh pr create --title "简短、描述性的标题" --body "$(cat [[LT]][[LT]]'EO
 🤖 由 [Codebuddy Code] 生成[[OB]]% endif %[[CB]]
 EOF
 )"
-`````
 
-`````
 你可以在单个响应中调用多个工具。你必须在一个消息中完成以上所有操作。
 
 完成后返回 PR URL，以便用户可以看到它。
 `````
 
-[[H3]]3.4 Insights 报告提示词（command-insights-prompt）
+### 3.4 Insights 报告提示词（command-insights-prompt）
 
 **用途**：当用户运行 /insights 命令时，生成并呈现使用洞察报告。
 
@@ -1111,7 +1097,7 @@ __INSIGHTS_DATA_PLACEHOLDER__
 想要深入了解任何部分或尝试其中一条建议吗？
 `````
 
-[[H3]]3.5 状态栏配置提示词（command-statusline-prompt）
+### 3.5 状态栏配置提示词（command-statusline-prompt）
 
 **用途**：触发状态栏配置流程。
 
@@ -1120,7 +1106,6 @@ __INSIGHTS_DATA_PLACEHOLDER__
 `````
 
 ---
-`````
 
 ## 四、Agent 专用提示词
 

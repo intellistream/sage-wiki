@@ -1713,8 +1713,6 @@ Second line with $literal dollar signs.
 **用途**：描述文件读取工具的全面能力，包括文本、图片、PDF 和 Jupyter notebook 支持。
 
 `````
-
-`````
 从本地文件系统读取文件。你可以使用此工具直接访问任何文件。
 假设此工具能够读取计算机上的所有文件。如果用户提供了一个文件的路径，假设该路径是有效的。读取不存在的文件是可以的；将返回错误。
 
@@ -1733,7 +1731,7 @@ Second line with $literal dollar signs.
 - 如果你读取一个存在但内容为空的文件，你将收到系统提醒警告，而不是文件内容。
 `````
 
-[[H3]]5.8 Edit 工具描述（tool-edit-description）
+### 5.8 Edit 工具描述（tool-edit-description）
 
 **用途**：描述精确字符串替换编辑工具的能力和约束。
 
@@ -1760,7 +1758,7 @@ Second line with $literal dollar signs.
 - 确保文本完全匹配，包括空白字符
 `````
 
-[[H3]]5.9 多文件编辑工具描述（tool-multiedit-description）
+### 5.9 多文件编辑工具描述（tool-multiedit-description）
 
 **用途**：在单个操作中对同一文件执行多次编辑。
 
@@ -1810,7 +1808,7 @@ Second line with $literal dollar signs.
 - 后续编辑：在创建的内容上进行正常的编辑操作
 `````
 
-[[H3]]5.10 Write 工具描述（tool-write-description）
+### 5.10 Write 工具描述（tool-write-description）
 
 **用途**：描述文件写入工具的能力和约束。
 
@@ -1825,7 +1823,7 @@ Second line with $literal dollar signs.
 - 仅在用户明确要求时使用 emoji。除非被要求，避免向文件中写入 emoji。
 `````
 
-[[H3]]5.11 Notebook 工具描述
+### 5.11 Notebook 工具描述
 
 **NotebookRead（tool-notebookread-description）**：
 
@@ -1839,13 +1837,9 @@ Second line with $literal dollar signs.
 完全替换 Jupyter notebook（.ipynb 文件）中特定 cell 的内容为新源代码。Jupyter notebooks 是结合代码、文本和可视化的交互式文档，通常用于数据分析和科学计算。notebook_path 参数必须是绝对路径，不能是相对路径。cell_number 从 0 开始索引。使用 edit_mode=insert 在由 cell_number 指定的索引处添加新 cell。使用 edit_mode=delete 删除由 cell_number 指定索引处的 cell。
 `````
 
-[[H3]]5.12 WebFetch 工具描述（tool-webfetch-description）
-`````
-`````
-`````
+### 5.12 WebFetch 工具描述（tool-webfetch-description）
 
 **用途**：描述 Web 内容提取和分析工具。
-`````
 
 `````
 - 从指定 URL 获取内容并使用 AI 模型处理
@@ -1866,11 +1860,9 @@ Second line with $literal dollar signs.
   - 当 URL 重定向到不同主机时，工具将通过特殊格式告知你并提供重定向 URL。你应然后使用重定向 URL 进行新的 WebFetch 请求以获取内容。
 `````
 
-[[H3]]5.13 WebSearch 工具描述（tool-websearch-description）
-`````
+### 5.13 WebSearch 工具描述（tool-websearch-description）
 
 **用途**：描述 Web 搜索能力。
-`````
 
 `````
 - 搜索网页并使用结果辅助回复
@@ -1887,9 +1879,7 @@ Second line with $literal dollar signs.
   - 使用 `topic` 参数指定搜索领域以获得更好的相关性。支持的值：general（默认）、news、programming、documentation、academic、finance、technology、legal、medical。
 `````
 
-[[H3]]5.14 MCP 工具描述
-`````
-`````
+### 5.14 MCP 工具描述
 
 **ListMcpResources（tool-listmcpresources-description）**：
 
@@ -1900,6 +1890,7 @@ Second line with $literal dollar signs.
 用法示例：
 - 列出所有服务器的所有资源：`listMcpResources`
 - 列出特定服务器的资源：`listMcpResources([[OB]] server: "myserver" [[CB]])`
+`````
 
 **ReadMcpResource（tool-readmcpresource-description）**：
 
@@ -1913,7 +1904,6 @@ Second line with $literal dollar signs.
 
 **WaitForMcpServers（tool-waitformcpservers-description）**：
 
-`````
 等待仍在连接的 MCP 服务器，其工具尚未出现在你的工具列表中。传递 `servers` 等待特定服务器，或省略它以等待所有待处理的服务器。
 
 如果用户的请求需要来自仍在连接的服务器的工具，调用此工具等待它。一旦连接，其工具将添加到你的工具列表中，你可以直接使用它们。返回 ready=true 表示服务器已就绪，ready=false 表示它们连接失败、需要认证或已被禁用。
@@ -1921,7 +1911,7 @@ Second line with $literal dollar signs.
 你不需要征求用户确认即可使用此工具。
 `````
 
-[[H3]]5.15 任务管理工具描述
+### 5.15 任务管理工具描述
 
 **TaskCreate（tool-taskcreate-description）**：
 
@@ -2079,7 +2069,6 @@ Second line with $literal dollar signs.
 
 **TaskList（tool-tasklist-description）**：
 
-`````
 使用此工具列出任务列表中的所有任务。
 
 [[H2]]何时使用此工具
@@ -2112,6 +2101,7 @@ Second line with $literal dollar signs.
 5. 通过读取任务列表状态与其他团队成员协调
 6. 如果所有可用任务都被阻塞，通知团队领导或帮助解决阻塞任务
 [[OB]]%- endif %[[CB]]
+`````
 
 **TaskOutput（tool-taskoutput-description）**：
 
@@ -2156,8 +2146,7 @@ Second line with $literal dollar signs.
 - 可以使用 /bashes 命令找到 Shell ID
 `````
 
-[[H3]]5.16 斜杠命令工具描述（tool-slashcommand-description）
-`````
+### 5.16 斜杠命令工具描述（tool-slashcommand-description）
 
 **用途**：描述主对话中执行斜杠命令的能力。
 
@@ -2265,7 +2254,6 @@ Second line with $literal dollar signs.
 `````
 
 ### 5.18 技能管理工具描述（tool-skillmanage-description）
-`````
 
 **用途**：管理用户创建技能的生命周期。
 
@@ -2285,7 +2273,7 @@ Second line with $literal dollar signs.
 - 删除技能时，你必须同时移除技能目录和注册表条目，并始终先与用户确认。
 `````
 
-[[H3]]5.19 计划模式工具描述
+### 5.19 计划模式工具描述
 
 **EnterPlanMode（tool-enterplanmode-description）**：
 
@@ -2393,6 +2381,7 @@ Second line with $literal dollar signs.
 记住：尚未编写或编辑任何文件。这是只读探索和规划阶段。
 
 [[OB]][[OB]] systemReminder | safe [[CB]][[CB]]
+`````
 
 **ExitPlanMode（tool-exit-planmode-description）**：
 
@@ -2454,7 +2443,6 @@ Second line with $literal dollar signs.
 `````
 
 ### 5.20 AskUserQuestion 工具描述（tool-ask-user-question-description）
-`````
 
 **用途**：在执行过程中向用户提问。
 
@@ -2474,7 +2462,7 @@ Second line with $literal dollar signs.
 [[OB]]"questions": [[[OB]]"question": "我们应该使用哪种方法？", "header": "方法", "options": [[[OB]]"label": "选项 A（推荐）", "description": "简单直接"[[CB]], [[OB]]"label": "选项 B", "description": "更灵活但复杂"[[CB]]][[CB]]][[CB]]
 `````
 
-[[H3]]5.21 LSP 工具描述（tool-lsp-description）
+### 5.21 LSP 工具描述（tool-lsp-description）
 
 **用途**：描述语言服务器协议的代码智能功能。
 
@@ -2500,7 +2488,7 @@ Second line with $literal dollar signs.
 注意：必须为文件类型配置 LSP 服务器。如果没有服务器可用，将返回错误。
 `````
 
-[[H3]]5.22 图片工具描述
+### 5.22 图片工具描述
 
 **ImageGen（tool-imagegen-description）**：
 
@@ -2508,7 +2496,7 @@ Second line with $literal dollar signs.
 使用 AI 模型从文本描述生成图片。
 `````
 
-[[H3]]5.24 团队工具描述
+### 5.24 团队工具描述
 
 **TeamCreate（tool-teamcreate-description）**：
 
@@ -2536,7 +2524,6 @@ Second line with $literal dollar signs.
 
 创建一个新团队来协调多个 Agent 在一个项目上工作。团队与任务列表有 1:1 的对应关系（Team = TaskList）。
 
-`````
 [[OB]]
   "team_name": "my-project",
   "description": "Working on feature X"
@@ -2654,7 +2641,6 @@ Second line with $literal dollar signs.
 
 **团队成员的重要说明**：你的纯文本输出对团队领导或其他团队成员不可见。要与团队中的任何人沟通，你**必须**使用此工具。仅在文本中输入回复或确认是不够的。
 
-`````
 [[OB]]
   "type": "message",
   "recipient": "researcher",
@@ -2675,7 +2661,6 @@ Second line with $literal dollar signs.
 - 每次投递消耗 API 资源
 - 成本随团队规模线性增长
 
-`````
 [[OB]]
   "type": "broadcast",
   "content": "Message to send to all teammates",
@@ -2700,7 +2685,7 @@ Second line with $literal dollar signs.
 
 使用此命令要求团队成员优雅地关闭：
 
-`````
+
 [[OB]]
   "type": "shutdown_request",
   "recipient": "researcher",
@@ -2715,7 +2700,6 @@ Second line with $literal dollar signs.
 
 当你收到 `type: "shutdown_request"` 的 JSON 消息作为关闭请求时，你**必须**响应批准或拒绝。不要仅在文本中确认请求——你必须实际调用此工具。
 
-`````
 [[OB]]
   "type": "shutdown_response",
   "request_id": "abc-123",
@@ -2728,7 +2712,6 @@ Second line with $literal dollar signs.
 
 #### 拒绝关闭
 
-`````
 [[OB]]
   "type": "shutdown_response",
   "request_id": "abc-123",
@@ -2744,7 +2727,6 @@ Second line with $literal dollar signs.
 
 当具有 `plan_mode_required` 的团队成员调用 ExitPlanMode 时，他们向你发送一个带有 `type: "plan_approval_request"` 的计划批准请求 JSON 消息。使用此工具批准他们的计划：
 
-`````
 [[OB]]
   "type": "plan_approval_response",
   "request_id": "abc-123",
@@ -2756,7 +2738,6 @@ Second line with $literal dollar signs.
 
 #### 拒绝计划
 
-`````
 [[OB]]
   "type": "plan_approval_response",
   "request_id": "abc-123",
@@ -2778,7 +2759,6 @@ Second line with $literal dollar signs.
 
 此工具也可由通过 Agent 工具启动的**后台 Agent**（`run_in_background: true`）使用。后台 Agent 应使用此工具将结果发送回主 Agent：
 
-`````
 [[OB]]
   "type": "message",
   "recipient": "main",
@@ -2791,9 +2771,6 @@ Second line with $literal dollar signs.
 `````
 
 ### 5.25 工具搜索与延迟执行
-`````
-`````
-`````
 
 **ToolSearch（tool-toolsearch-description）**：
 
@@ -2823,7 +2800,6 @@ Second line with $literal dollar signs.
 
 **DeferExecuteTool（tool-deferexecutetool-description）**：
 
-`````
 按名称执行延迟工具。使用此工具调用通过 ToolSearch 发现的工具，而无需它们在活跃工具列表中。
 
 用法：
@@ -2857,10 +2833,8 @@ DeferExecuteTool([[OB]] toolName: "ImageGen", params: [[OB]] prompt: "a sunset o
 `````
 
 ### 5.26 Worktree 工具（tool-enterworktree-description）
-`````
 
 **用途**：在隔离的 git worktree 中工作。
-`````
 
 `````
 仅在用户明确要求使用 worktree 时使用此工具。
@@ -2895,8 +2869,6 @@ DeferExecuteTool([[OB]] toolName: "ImageGen", params: [[OB]] prompt: "a sunset o
 `````
 
 ### 5.27 Cron 工具
-`````
-`````
 
 **CronCreate（tool-croncreate-description）**：
 
@@ -2957,7 +2929,6 @@ DeferExecuteTool([[OB]] toolName: "ImageGen", params: [[OB]] prompt: "a sunset o
 ### 5.28 委托工具（tool-delegatetool-description）
 
 **用途**：通过 ACP 协议执行来自外部客户端的工具。
-`````
 
 `````
 执行从外部客户端工具提供者（例如 IDE 扩展、Web UI 插件）委托的工具。
@@ -2991,7 +2962,6 @@ DeferExecuteTool([[OB]] toolName: "ImageGen", params: [[OB]] prompt: "a sunset o
 
 **用途**：创建和管理结构化任务列表。
 
-`````
 使用此工具创建和管理当前编码会话的结构化任务列表。这帮助你跟踪进度、组织复杂任务并向用户展示你的彻底性。
 还将帮助用户了解任务的进度和请求的整体进展。
 

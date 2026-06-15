@@ -966,7 +966,6 @@ GIT 状态：
 
 你的最终回复必须包含 markdown 报告，仅此而已。
 `````
-`````
 
 [[H3]]3.2 Git 提交提示词（command-commit-prompt）
 

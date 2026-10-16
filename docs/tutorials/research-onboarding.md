@@ -1,6 +1,7 @@
 ---
 title: 科研入门：第一个月的可验证计划
 audience: public
+domain: research
 date: 2026-10-16
 ---
 

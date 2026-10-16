@@ -2,7 +2,7 @@
 
 IntelliStream 团队知识库，通过 Git 协作维护。
 
-在线访问：**[https://ride-lab.github.io/sage-wiki/](https://ride-lab.github.io/sage-wiki/)**。旧的 `lab.sage.org.ai/sage-wiki` 仅显示迁移提示，不是文档站点。
+在线访问：**[https://lab.sage.org.ai/sage-wiki/](https://lab.sage.org.ai/sage-wiki/)**。仓库由 IntelliStream 组织维护，GitHub Pages 使用组织域名。
 
 ## 本地开发
 
@@ -15,7 +15,7 @@ npm start     # 启动开发服务器 (http://localhost:3000/sage-wiki/)
 
 ### 快速开始
 
-1. Clone 仓库：`git clone https://github.com/RIDE-Lab/sage-wiki.git`
+1. Clone 仓库：`git clone https://github.com/intellistream/sage-wiki.git`
 2. 在对应目录下创建 Markdown 文件（见下方目录说明）
 3. 本地预览：`npm start`
 4. 提交 PR 或直接 push

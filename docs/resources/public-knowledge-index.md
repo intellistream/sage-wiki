@@ -21,6 +21,8 @@ sidebar_position: 4
 
 ## 内容如何进入 Wiki
 
+实践入口：[研究入门](../tutorials/research-start.md)、[服务端到端验收](../tutorials/serving-acceptance.md)、[知识库更新与清理](../tutorials/knowledge-maintenance.md)、[Wiki 贡献规范](../standards/wiki-contribution.md)。这些页面提供步骤、验收条件和失败排查，而不只是项目简介。
+
 新增页面应有清楚的公开来源或作者授权，并先检查 Wiki 是否已有相同主题。来自对话、内部知识库或旧版主页的内容，不能仅凭“游客能检索到”就视作可公开；涉及人员、未公开实验、服务配置和访问凭据的材料不应直接复制。对论文、奖项和任职等会变化的事实，优先链接原站并标明核对日期。
 
 本文核对日期：2026-10-16。

@@ -12,40 +12,40 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: '成果展示',
+    title: '开始一个研究课题',
     emoji: '🏆',
-    description: '项目里程碑、技术产出、获奖记录，记录团队的每一步成长。',
-    href: '/sage-wiki/docs/achievements/',
+    description: '从问题定义、论文阅读到基线复现，明确每一步需要交付的证据。',
+    href: '/sage-wiki/docs/tutorials/research-start/',
   },
   {
-    title: '学习教程',
+    title: '理解推理系统',
     emoji: '📚',
-    description: '技术入门、工具使用教程和最佳实践，帮助新人快速上手。',
-    href: '/sage-wiki/docs/tutorials/',
+    description: '沿着调度、KV Cache、并行与状态管理建立知识地图。',
+    href: '/sage-wiki/docs/resources/inference-systems-reading-path/',
   },
   {
-    title: '技术心得',
+    title: '验收一个模型服务',
     emoji: '💡',
-    description: '踩坑记录、源码分析、技术调研，沉淀团队的技术积累。',
-    href: '/sage-wiki/docs/tech-notes/',
+    description: '检查流式结束、真实工具调用、长上下文、检索和并发，不只看 HTTP 200。',
+    href: '/sage-wiki/docs/tutorials/serving-acceptance/',
   },
   {
-    title: '团队规范',
+    title: '维护可信知识库',
     emoji: '📋',
-    description: '代码规范、工作流程、Review 准则，统一团队的协作方式。',
-    href: '/sage-wiki/docs/standards/',
+    description: '管理来源、更新、删除、索引与引用，区分知识过期和检索失败。',
+    href: '/sage-wiki/docs/tutorials/knowledge-maintenance/',
   },
   {
-    title: '资源汇总',
+    title: '设计可信实验',
     emoji: '🔗',
-    description: '推荐书单、工具清单、常用链接，整合优质外部资源。',
-    href: '/sage-wiki/docs/resources/',
+    description: '固定负载与对照，分别报告吞吐、延迟、正确性和适用边界。',
+    href: '/sage-wiki/docs/resources/inference-benchmark-guide/',
   },
   {
-    title: '团队博客',
+    title: '贡献与更新知识',
     emoji: '✍️',
-    description: '周报、技术分享、团队动态，记录团队的思考和故事。',
-    href: '/sage-wiki/blog',
+    description: '写清问题、步骤、验收、限制和公开来源，让文档能持续维护。',
+    href: '/sage-wiki/docs/standards/wiki-contribution/',
   },
 ];
 
@@ -69,6 +69,7 @@ export default function HomepageFeatures(): ReactNode {
   return (
     <section className={styles.features}>
       <div className="container">
+        <Heading as="h2">按目标阅读</Heading>
         <div className="row">
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />

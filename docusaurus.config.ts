@@ -4,17 +4,17 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'Sage Wiki',
-  tagline: '团队知识库 — 沉淀技术，共享成长',
+  tagline: '从研究问题到可复现的系统实验',
   favicon: 'img/favicon.ico',
 
   future: {
     v4: true,
   },
 
-  url: 'https://ride-lab.github.io',
+  url: 'https://lab.sage.org.ai',
   baseUrl: '/sage-wiki/',
 
-  organizationName: 'RIDE-Lab',
+  organizationName: 'intellistream',
   projectName: 'sage-wiki',
 
   onBrokenLinks: 'throw',
@@ -30,7 +30,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          editUrl: 'https://github.com/RIDE-Lab/sage-wiki/edit/main/',
+          editUrl: 'https://github.com/intellistream/sage-wiki/edit/main/',
           rehypePlugins: [
             require('./plugins/rehype-restore-placeholders'),
           ],
@@ -41,7 +41,7 @@ const config: Config = {
             type: ['rss', 'atom'],
             xslt: true,
           },
-          editUrl: 'https://github.com/RIDE-Lab/sage-wiki/edit/main/',
+          editUrl: 'https://github.com/intellistream/sage-wiki/edit/main/',
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
@@ -88,7 +88,7 @@ const config: Config = {
           position: 'left',
         },
         {
-          href: 'https://github.com/RIDE-Lab/sage-wiki',
+          href: 'https://github.com/intellistream/sage-wiki',
           label: 'GitHub',
           position: 'right',
         },
@@ -116,7 +116,7 @@ const config: Config = {
         {
           title: '链接',
           items: [
-            {label: 'GitHub', href: 'https://github.com/RIDE-Lab/sage-wiki'},
+            {label: 'GitHub', href: 'https://github.com/intellistream/sage-wiki'},
           ],
         },
       ],

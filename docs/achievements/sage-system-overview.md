@@ -1,54 +1,36 @@
 ---
-title: SAGE 系统概述与里程碑
-date: 2026-06-15
+title: 系统研究概览：SAGE、ECPA、StateAxis 与 vLLM-HUST
+date: 2026-10-16
 authors: [shuhao]
-tags: [SAGE, 系统, 里程碑]
+tags: [系统研究, 大模型推理, 状态管理]
 sidebar_position: 1
 ---
 
-# SAGE 系统概述与里程碑
+# 系统研究概览
 
-SAGE (State-Aware Generative Engine) 是团队的核心系统项目，涵盖 LLM 推理优化、知识管理和智能助手等多个方向。
+课题组研究动态环境下的数据密集型系统：任务会产生新的依赖，信息会持续更新，负载与可用资源也会变化。核心问题是如何在这些变化中保持执行效率、服务稳定性与结果可验证性。目前的公开研究分为三条相互关联的路线。
 
-## 系统架构
+贯穿这些路线的共同视角是高效状态管理：观察和调度状态访问，让执行适应硬件约束，并使可复用状态在持续变化中得到正确维护。对大模型推理而言，这些问题分别落在请求合批、prefill/decode、KV cache、外部检索与长期记忆等层次；研究选题应明确所优化的指标和正确性边界。
 
-SAGE 系统由以下核心模块组成：
+| 研究路线 | 直接管理的对象 | 代表性问题 |
+| --- | --- | --- |
+| 依赖驱动的任务执行 | 多阶段任务及其依赖 | 如何组织推理流程，并根据负载与硬件选择并发和异构执行方式？ |
+| 持续变化信息的维护与复用 | 动态数据、检索结果和外部记忆 | 更新什么、保留什么，以及何时可以复用历史信息？ |
+| 资源约束下的在线服务调控 | 请求、容量和运行状态 | 在负载波动或资源变化时，如何调度、迁移和恢复服务？ |
 
-### 推理引擎层
+## 从研究问题到系统
 
-- **vLLM-HUST**: 基于 vLLM 的 Ascend NPU 适配推理引擎
-- **BidKV**: 双向 KV Cache 复用系统，支持 prefix 和 suffix 缓存
-- **FlowRAG**: 持续学习框架下的动态检索增强生成
+- **SAGE** 以数据流组织模块化、可控制、可观测的 LLM 推理流程，连接检索、记忆、工具与模型调用；它面向任务执行与工作流组织。
+- **Neuromem** 研究外部记忆的写入、维护、检索和跨轮使用。**FlowRAG** 研究动态检索器的持续更新；二者面向变化信息的维护与复用。外部记忆与推理引擎内部的 KV cache 承担不同职责。
+- **vLLM-HUST** 是面向国产算力推理优化的研究与工程载体；请求调度、KV 驻留与复用、长上下文、MoE 执行和异构通信等问题在真实模型、硬件与负载上验证。
 
-### 知识管理层
+**ECPA** 研究扩展机制的能力声明、接入验证、冲突隔离与安全退出，让不同优化可以组合。**StateAxis** 研究推理状态的所有权、布局、访问、迁移与生命周期，让执行和服务共享一致的状态基础。它们连接上述三条路线，不是两条新的平行研究方向。相关系统仍在持续研究，不能把概念设计等同于已验证的性能收益。
 
-- **NeuroMem**: 基于记忆网络的知识存储与检索
-- **SAGE Faculty Twin**: 学术数字人助手，集成知识库与对话系统
-- **Wiki-Link Retrieval**: 利用 wiki 链接结构增强检索质量
+## 公开资料与延伸阅读
 
-### 系统调度层
+- [当前研究方向与系统介绍](https://me.sage.org.ai/)：研究表述以个人主页的最新版本为准。
+- [系统建设与代表项目](https://me.sage.org.ai/systems.html)：区分已形成的成果与在研系统，并提供公开代码、论文入口。
+- [论文与研究积累](https://me.sage.org.ai/publications.html)：题录和作者版本的维护入口。
+- Wiki 入门资料：[LLM 推理入门](../tutorials/llm-inference-basics.md)、[KV Cache 优化](../tech-notes/kv-cache-optimization.md)、[分布式推理架构](../tech-notes/distributed-inference-patterns.md)。
 
-- **VAMOS**: 多推理实例的请求调度与资源管理
-- **StreamFP**: 流式数据选择与持续学习
-
-## 技术亮点
-
-1. **PagedAttention 在 NPU 上的实现**：适配华为 Ascend 910B 的内存管理模型
-2. **连续批处理调度**：支持动态请求加入和退出
-3. **多层链接检索**：利用知识文档间的链接关系提升检索召回率
-
-## 关键指标
-
-| 指标 | 数值 | 对比基线 |
-|------|------|----------|
-| 推理吞吐 | 2.3× | vs vLLM baseline |
-| KV Cache 命中率 | 68% | vs 单向缓存 |
-| 检索 Recall@5 | +15% | vs 纯向量检索 |
-
-## 延伸阅读
-
-- [KV Cache 优化技术](../tech-notes/kv-cache-optimization.md)
-- [分布式推理架构](../tech-notes/distributed-inference-patterns.md)
-- [Continuous Batching](../tech-notes/continuous-batching-notes.md)
-- [RAG 系统设计](../tech-notes/retrieval-augmented-generation.md)
-- [LLM 推理入门](../tutorials/llm-inference-basics.md)
+本页依据上述已公开资料整理，不转载内部实验数据，也不沿用旧版 Wiki 中缺少可复核负载与基线说明的性能数字。

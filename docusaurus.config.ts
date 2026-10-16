@@ -14,10 +14,10 @@ const config: Config = {
   url: 'https://lab.sage.org.ai',
   baseUrl: '/sage-wiki/',
 
-  organizationName: 'intellistream',
+  organizationName: 'RIDE-Lab',
   projectName: 'sage-wiki',
 
-  onBrokenLinks: 'warn',
+  onBrokenLinks: 'throw',
 
   i18n: {
     defaultLocale: 'zh-Hans',
@@ -30,7 +30,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          editUrl: 'https://github.com/intellistream/sage-wiki/edit/main/',
+          editUrl: 'https://github.com/RIDE-Lab/sage-wiki/edit/main/',
           rehypePlugins: [
             require('./plugins/rehype-restore-placeholders'),
           ],
@@ -41,7 +41,7 @@ const config: Config = {
             type: ['rss', 'atom'],
             xslt: true,
           },
-          editUrl: 'https://github.com/intellistream/sage-wiki/edit/main/',
+          editUrl: 'https://github.com/RIDE-Lab/sage-wiki/edit/main/',
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
@@ -88,7 +88,7 @@ const config: Config = {
           position: 'left',
         },
         {
-          href: 'https://github.com/intellistream/sage-wiki',
+          href: 'https://github.com/RIDE-Lab/sage-wiki',
           label: 'GitHub',
           position: 'right',
         },
@@ -116,7 +116,7 @@ const config: Config = {
         {
           title: '链接',
           items: [
-            {label: 'GitHub', href: 'https://github.com/intellistream/sage-wiki'},
+            {label: 'GitHub', href: 'https://github.com/RIDE-Lab/sage-wiki'},
           ],
         },
       ],

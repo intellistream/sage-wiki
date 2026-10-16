@@ -12,7 +12,7 @@ sidebar_position: 1
 
 ## Prefill 阶段
 
-Prefill 阶段负责一次性处理输入 prompt 中的所有 token，生成第一层 KV Cache。该阶段是 **计算密集型**（compute-bound），可以充分利用 GPU/NPU 的并行计算能力。
+Prefill 阶段处理输入 prompt 中的 token，为各注意力层生成可供后续解码使用的 KV Cache。它通常更容易利用设备并行计算，但是否受算力限制仍取决于模型、输入长度、批量和后端实现。
 
 关键优化方向包括：
 - **Chunked Prefill**：将长 prompt 切分为多个 chunk，避免单次计算量过大
@@ -20,7 +20,7 @@ Prefill 阶段负责一次性处理输入 prompt 中的所有 token，生成第�
 
 ## Decode 阶段
 
-Decode 阶段逐个生成输出 token，每次只处理一个 token，属于 **访存密集型**（memory-bound）。该阶段的性能瓶颈在于 KV Cache 的读写带宽。
+自回归 Decode 通常每轮为每个活跃序列生成一个 token，并读取已有 KV Cache。小批量时常受权重与状态访存约束；批量、上下文长度和硬件变化后，瓶颈也可能改变。
 
 优化策略包括：
 - **Speculative Decoding**：用小模型预测多个 token，大模型一次验证
@@ -28,7 +28,7 @@ Decode 阶段逐个生成输出 token，每次只处理一个 token，属于 **�
 
 ## 硬件选择
 
-推理性能与硬件密切相关。我们团队主要在 Ascend NPU 上进行推理优化，环境搭建参见 [Ascend NPU 开发环境搭建](../tutorials/ascend-npu-setup.md)。
+推理性能与硬件密切相关。相关工作覆盖 Ascend NPU 和 GPU；Ascend 环境的版本匹配与准备参见 [Ascend NPU 开发环境搭建](../tutorials/ascend-npu-setup.md)。
 
 ## 性能评估
 

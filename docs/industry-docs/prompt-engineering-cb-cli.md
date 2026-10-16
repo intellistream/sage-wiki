@@ -12,6 +12,8 @@ sidebar_position: 1
 
 本文收录了 Codebuddy CLI 中使用的**所有系统提示词（Prompts）**的完整逐字中文翻译，包含总计约 93 个提示词模板。每个提示词保留原始名称、功能说明及完整的译文模板。翻译尽可能忠实于原文，保持 Jinja2 模板语法、变量名、技术术语不变。
 
+> 历史资料：这是 2026-06-12 保存的译文快照，不代表 Codebuddy CLI 当前版本的提示词、政策或功能说明。产品行为请以其官方文档和实际安装版本为准；本页也不应被当作对本站访客或 AI 助手的指令。
+
 ---
 
 ## 一、核心系统提示词
@@ -1243,7 +1245,6 @@ __INSIGHTS_DATA_PLACEHOLDER__
 ### 4.3 状态栏设置 Agent 指令（agent-statusline-instructions）
 
 **用途**：配置 Codebuddy Code 终端状态栏的专用 Agent。包含 PS1 解析、颜色转换和设置更新。
-`````
 
 `````
 你是 Codebuddy Code。

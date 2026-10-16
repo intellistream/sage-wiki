@@ -8,38 +8,28 @@ sidebar_position: 2
 
 # Ascend NPU 开发环境搭建指南
 
-本文介绍如何在华为 Ascend 910B NPU 上搭建 LLM 推理开发环境。
+本文提供 Ascend NPU 推理环境的核对流程，不再给出一组容易过期的固定依赖版本。实际安装前，应以目标设备、驱动和所选引擎版本对应的兼容矩阵为准。
 
 ## 硬件要求
 
-- Ascend 910B3 NPU（64 GB HBM）
-- 推荐 4 卡配置用于 Tensor Parallelism
+- 先运行 `npu-smi info`，确认设备型号、可用 HBM、驱动及可分配设备；不同型号与配置不可混为一谈。
+- 并行度由模型规模、单卡可用容量、设备互联和目标负载决定，不存在通用的“四卡推荐值”。在共享宿主上先确认设备归属，不要占用他人的 NPU。
 
 ## 软件栈安装
 
-### 1. CANN Toolkit
+1. 从 [vLLM-Ascend 版本兼容矩阵](https://docs.vllm.ai/projects/ascend/en/latest/community/versioning_policy.html)选择一整组相容的 vLLM、插件、Python、CANN、PyTorch 与 torch-npu 版本，不要跨行拼接。预构建镜像和现有 CANN 环境是两条不同安装路径，按[官方安装指南](https://docs.vllm.ai/projects/ascend/en/latest/installation.html)选择其一。
+2. 使用团队分支时，成对核对 [vLLM-HUST](https://github.com/vLLM-HUST/vllm-hust) 和 [vLLM-Ascend-HUST](https://github.com/vLLM-HUST/vllm-ascend-hust) 的版本与安装说明；不要把 HUST 插件接到未经核对的上游核心版本。
+3. 在启动推理服务前验证设备与 Python 导入。以下命令只做只读检查，不能代替模型加载和真实请求验收：
 
 ```bash
-# 下载并安装 CANN toolkit
-./Ascend-cann-toolkit_8.0.RC1_linux-aarch64.run --install
-source /usr/local/Ascend/ascend-toolkit/set_env.sh
+npu-smi info
+python -c 'import torch, torch_npu, vllm; print(torch.__version__, torch_npu.__version__, vllm.__version__)'
 ```
-
-### 2. PyTorch + torch_npu
-
-```bash
-pip install torch==2.1.0
-pip install torch_npu==2.1.0
-```
-
-### 3. vLLM-Ascend
-
-基于 vLLM 的 Ascend 适配版本，详见 [vLLM-HUST 项目](https://github.com/intellistream/vllm-hust)。
 
 ## 常见问题
 
-- **环境变量**：`set_env.sh` 和 `LD_LIBRARY_PATH` 必须同时设置
-- **Graph Mode**：Ascend 910B3 上禁止使用 `--enforce-eager`，需使用 graph mode 以获得最佳性能
+- **设备或动态库无法识别**：检查 CANN/ATB 环境脚本是否与安装路径匹配；参见[官方 FAQ](https://docs.vllm.ai/projects/ascend/en/latest/faqs.html)。不要在共享宿主上覆盖全局环境变量或驱动。
+- **Graph 与 eager**：支持范围和性能因引擎版本、模型及 shape 而异。两者都应通过真实请求和同负载 benchmark 验证，不能把一种模式写成普遍禁止。
 
 ## 相关资源
 

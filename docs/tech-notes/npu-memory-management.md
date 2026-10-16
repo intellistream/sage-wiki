@@ -8,17 +8,17 @@ sidebar_position: 2
 
 # NPU 显存管理与调度策略
 
-华为 Ascend NPU 的显存管理与 CUDA GPU 有显著差异。本文总结团队在 NPU 推理实践中积累的显存管理经验。
+Ascend NPU 与 CUDA GPU 的运行时、内存分配和图执行路径不同。本文给出排查维度；设备容量和最优参数应从当前硬件及同负载实测中取得。
 
 ## NPU 显存架构
 
-Ascend 910B3 配备 64 GB HBM，显存带宽约 1.5 TB/s。相比 NVIDIA A100 (80 GB, 2 TB/s)，带宽较低但容量相当。
+不同 Ascend 与 GPU 型号的 HBM 容量、带宽和可用配额不同，不能用单一标称规格代替当前宿主的实际可用显存。先用 `npu-smi info` 查看设备，再分别记录模型权重、KV Cache、激活和运行时预留。
 
 ### 显存分配策略
 
 - **静态分配**：模型权重 + KV Cache 预分配
 - **动态分配**：运行时按需分配 activation 内存
-- `gpu_memory_utilization` 参数控制 KV Cache 预分配比例（推荐 0.85-0.92）
+- `gpu_memory_utilization` 等预算参数的含义与有效范围由所用引擎版本决定；从低风险配置开始，结合加载、长上下文、并发和 OOM 实测调整，不给全平台通用的比例。
 
 ## 调度优化
 

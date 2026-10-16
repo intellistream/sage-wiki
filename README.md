@@ -15,7 +15,7 @@ npm start     # 启动开发服务器 (http://localhost:3000/sage-wiki/)
 
 ### 快速开始
 
-1. Clone 仓库：`git clone https://github.com/intellistream/sage-wiki.git`
+1. Clone 仓库：`git clone https://github.com/RIDE-Lab/sage-wiki.git`
 2. 在对应目录下创建 Markdown 文件（见下方目录说明）
 3. 本地预览：`npm start`
 4. 提交 PR 或直接 push

@@ -12,21 +12,21 @@ KV Cache 是 LLM 推理的核心数据结构，存储注意力机制的 Key 和 
 
 ## PagedAttention
 
-vLLM 提出的 PagedAttention 将 KV Cache 按 **page** 粒度管理，类似操作系统的虚拟内存：
-- 消除预分配导致的内存碎片
+vLLM 提出的 PagedAttention 将 KV Cache 按 **block** 粒度管理，借鉴虚拟内存的映射思路：
+- 减少连续预留带来的浪费和碎片，而不是消除所有碎片
 - 支持 Copy-on-Write 实现 beam search 等共享场景
-- 显存利用率提升 2-4 倍
+- 可用容量和吞吐收益取决于序列长度、批量及实现，应在目标负载上测量
 
 ## Prefix Caching
 
 当多个请求共享相同前缀（如 system prompt）时，可以复用已计算的 KV Cache：
 - **RadixAttention** (SGLang)：基于 radix tree 的自动前缀匹配
-- **Segment-level reuse**：按语义段粒度进行缓存匹配
+- 跨请求复用必须保证 token 序列、位置、模型与缓存有效性条件一致；仅凭“语义相似”不能复用 KV
 
 ## KV Cache 量化
 
 将 FP16/BF16 的 KV Cache 压缩为 INT8 或 INT4：
-- 显存占用降低 2-4 倍
+- 理论张量字节数随位宽降低，实际显存节省还取决于元数据、分组尺度和后端实现
 - 需要关注精度损失对生成质量的影响
 - 常用方案：KIVI、GEAR 等
 
@@ -38,14 +38,12 @@ vLLM 提出的 PagedAttention 将 KV Cache 按 **page** 粒度管理，类似操
 
 ## 相关论文与项目
 
-我们团队在 KV Cache 优化方面有多项研究成果：
-- BidKV：双向 KV Cache 复用系统（详见 [SAGE 系统概述](../achievements/sage-system-overview.md)）
-- FlowRAG：持续学习框架下的动态检索增强
+团队关于推理状态管理的公开研究以[系统研究概览](../achievements/sage-system-overview.md)及其中的项目、论文链接为准。FlowRAG 研究动态检索器更新，不是 KV Cache 优化算法；不要把两者的收益混写。
 
 ## 实践建议
 
 1. 始终监控 KV Cache 使用率，避免 OOM
-2. 对于长上下文场景，优先考虑 prefix caching
+2. 对于长上下文场景，先分析重复前缀比例、缓存容量和失效条件，再决定 prefix caching 是否值得开启
 3. NPU 平台上的显存管理细节参见 [NPU 显存管理](npu-memory-management.md)
 
 ## 延伸阅读

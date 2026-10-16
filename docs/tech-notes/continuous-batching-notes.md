@@ -12,7 +12,7 @@ Continuous Batching（也称为 iteration-level scheduling）是现代 LLM 推�
 
 ## 原理
 
-传统 static batching 需要等整个 batch 的所有请求都完成才能释放资源。Continuous batching 在 **每个 decode step** 后检查：
+传统静态批处理通常按整批安排工作，短请求可能被长请求拖住。Continuous batching 在调度边界重新检查活跃请求；具体边界和执行方式因引擎而异：
 - 已完成的请求立即移出 batch，释放 KV Cache
 - 等待队列中的新请求可以立即加入
 
@@ -37,13 +37,9 @@ while True:
 - **Swap**：将被抢占请求的 KV Cache 移到 CPU 内存
 - **Recompute**：丢弃 KV Cache，恢复时重新 prefill
 
-## 性能对比
+## 性能验证
 
-| 策略 | 吞吐量提升 | 延迟影响 |
-|------|-----------|---------|
-| Static Batching | 1.0× | baseline |
-| Continuous Batching | 2-5× | TTFT 降低 |
-| + Chunked Prefill | 3-6× | TBT 更稳定 |
+Continuous batching 和 chunked prefill 并没有跨模型、硬件与负载通用的加速倍数。比较时同时固定请求到达过程、输入/输出长度、并发和正确性，报告吞吐、TTFT、每输出 token 间隔、尾时延及拒绝率；chunked prefill 也可能改变 prefill 与 decode 的资源竞争。
 
 ## 与 NPU 的适配
 

@@ -14,15 +14,16 @@ sidebar_position: 3
 
 | 工具 | 用途 | 链接 |
 |------|------|------|
-| vLLM | 高吞吐 LLM 推理引擎 | github.com/VLLM-HUST/vllm-hust |
-| vLLM-Ascend | vLLM 的 Ascend NPU 适配 | github.com/VLLM-HUST/vllm-ascend-hust |
-| SGLang | 结构化生成引擎 | github.com/sgl-project/sglang |
+| vLLM-HUST | 面向国产算力和研究实验的 vLLM 分支 | [vLLM-HUST](https://github.com/vLLM-HUST/vllm-hust) |
+| vLLM-Ascend-HUST | 与 vLLM-HUST 配套的 Ascend NPU 插件分支 | [vLLM-Ascend-HUST](https://github.com/vLLM-HUST/vllm-ascend-hust) |
+| 上游 vLLM-Ascend | 通用 Ascend 后端与版本兼容说明 | [官方文档](https://docs.vllm.ai/projects/ascend/en/latest/) |
+| SGLang | 推理与结构化生成框架 | [SGLang](https://github.com/sgl-project/sglang) |
 
 ## 开发工具
 
 - **Git**: 版本控制，团队规范参见 [代码 Review 规范](../standards/code-review-standards.md)
-- **Docker**: 容器化部署，NPU 开发必须在 Docker 中运行
-- **tmux/screen**: 终端复用，长时间训练必备
+- **Docker**: 可用于容器化部署；是否使用取决于所选安装路径和宿主环境
+- **tmux/screen**: 终端复用，适合较长的交互式开发任务
 
 ## 监控与调试
 

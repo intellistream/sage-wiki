@@ -1,6 +1,10 @@
 ---
 title: 中文综述写作规范（CCCF 风格）
 date: 2026-06-20
+audience: public
+domain: teaching
+course_id: paper-writing
+material_type: guide
 ---
 
 ## 目的

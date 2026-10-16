@@ -11,7 +11,7 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'https://lab.sage.org.ai',
+  url: 'https://ride-lab.github.io',
   baseUrl: '/sage-wiki/',
 
   organizationName: 'RIDE-Lab',

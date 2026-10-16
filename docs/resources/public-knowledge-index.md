@@ -19,7 +19,15 @@ sidebar_position: 4
 | 推理系统实践 | [Benchmark 指南](inference-benchmark-guide.md)、[常用工具](tools-and-frameworks.md)和[Ascend NPU 环境搭建](../tutorials/ascend-npu-setup.md) |
 | 个人简介与学术服务 | [个人主页](https://me.sage.org.ai/)的当前公开版本 |
 
-## 内容如何进入 Wiki
+## 知识库迁入的学习专题
+
+- 论文写作课程：[第5讲·多维视角](../tutorials/paper-writing-lecture-5.md)、[第6讲·写作训练](../tutorials/paper-writing-lecture-6.md)、[第7讲·选题与论文](../tutorials/paper-writing-lecture-7.md)、[第8讲·毕业论文修订](../tutorials/paper-writing-lecture-8.md)。
+- 科研实践：[第一个月的入门计划](../tutorials/research-onboarding.md)、[Git 分支安全收尾](../standards/git-branch-hygiene.md)。
+- 系统与工具：[Twin 使用边界](../tutorials/twin-usage.md)、[推理系统研究问题](../tech-notes/domestic-inference-open-problems.md)。
+
+这些内容经过公开审查和改写。内部排班、具体项目分支、未经核验的成果数字没有随正文迁出；第三方论文全文也不复制进 Wiki。课程总结由 Wiki 统一维护，原课程附件仍作为不同粒度的参考资料。
+
+## 内容维护规则
 
 实践入口：[研究入门](../tutorials/research-start.md)、[服务端到端验收](../tutorials/serving-acceptance.md)、[知识库更新与清理](../tutorials/knowledge-maintenance.md)、[Wiki 贡献规范](../standards/wiki-contribution.md)。这些页面提供步骤、验收条件和失败排查，而不只是项目简介。
 

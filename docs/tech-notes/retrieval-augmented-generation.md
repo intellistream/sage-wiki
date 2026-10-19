@@ -1,5 +1,7 @@
 ---
 title: RAG 系统设计与实践
+domain: research
+material_type: guide
 date: 2026-06-01
 authors: [shuhao]
 tags: [RAG, 检索增强, 知识库]

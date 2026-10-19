@@ -1,5 +1,7 @@
 ---
 title: 推理系统 Benchmark 指南
+domain: research
+material_type: guide
 date: 2026-03-28
 authors: [shuhao]
 tags: [Benchmark, 性能测试, 评估]

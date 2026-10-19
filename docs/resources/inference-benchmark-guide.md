@@ -54,6 +54,10 @@ vllm bench serve --help
 - Graph 与 eager 的可用性及收益取决于模型、shape 和版本，须在相同 workload 下比较
 - 详细环境配置参见 [Ascend NPU 环境搭建](../tutorials/ascend-npu-setup.md)
 
+## RAG 的效果与性能需要联合验收
+
+引擎 benchmark 不能单独证明 RAG 服务的质量或用户侧延迟。评测时还要覆盖检索、重排、来源核验和最终交付，并在同一测试集上检查答案完整性、事实与引用支持，再比较质量约束下的有效吞吐。完整方法、失败处理和复核材料见 [RAG 系统设计与实践：同时评测效果与性能](../tech-notes/retrieval-augmented-generation.md#同时评测-rag-的效果与性能)。
+
 ## 延伸阅读
 
 - [LLM 推理入门](../tutorials/llm-inference-basics.md)
